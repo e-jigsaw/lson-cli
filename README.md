@@ -1,6 +1,8 @@
 lson-cli
 ========
 
+ [![npm version](https://badge.fury.io/js/lson-cli.svg)](http://badge.fury.io/js/lson-cli) [![dependency Status](https://david-dm.org/e-jigsaw/lson-cli/status.svg)](https://david-dm.org/e-jigsaw/lson-cli) [![devDependency Status](https://david-dm.org/e-jigsaw/lson-cli/dev-status.svg)](https://david-dm.org/e-jigsaw/lson-cli#info=devDependencies)
+
 [LSON](https://github.com/gkovacs/lson) compiler for CLI.
 
 # Usage
