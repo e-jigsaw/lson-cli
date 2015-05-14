@@ -32,7 +32,6 @@ Output to directory
 [Glob](https://github.com/isaacs/node-glob) your file
 
 ```sh
-✈ mkdir out
 ✈ lson -o out *.lson
 ✈ cat out/test.json
 { hoge: 'hoge' }
