@@ -1,7 +1,7 @@
 require! {
   fs
   path
-  lson
+  \@jigsaw/lson
   minimist
   glob
   \../package.json : p
@@ -21,27 +21,27 @@ module.exports = ->
     process.exit 1
 
   files = glob.sync do
-    argv._[0]
+    argv._.0
     realpath: true
 
-  files.forEach (filepath)->
-    res = lson.parseFile filepath
+  filepath <- files.forEach
+  res = lson.parseFile filepath
 
-    if argv.p
-      console.log res
+  if argv.p
+    console.log res
 
-    if argv.o?
-      filename = path.basename filepath
-      candidate = path.resolve process.cwd!, argv.o
+  if argv.o?
+    filename = path.basename filepath
+    candidate = path.resolve process.cwd!, argv.o
 
-      try
-        flg = fs.statSync candidate .isDirectory!
-      catch error
-        flg = false
+    try
+      flg = fs.statSync candidate .isDirectory!
+    catch error
+      flg = false
 
-      outputpath = if flg
-        path.resolve candidate, "./#{filename}" .replace /lson$/, \json
-      else
-        candidate
+    outputpath = if flg
+      path.resolve candidate, "./#{filename}" .replace /lson$/, \json
+    else
+      candidate
 
-      fs.writeFileSync outputpath, JSON.stringify res
+    fs.writeFileSync outputpath, JSON.stringify res
