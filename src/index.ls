@@ -10,7 +10,7 @@ require! {
 module.exports = ->
   argv = minimist do
     process.argv.slice 2
-    boolean: [\p]
+    boolean: <[p m]>
 
   if argv.v? or argv.version?
     console.log p.version
@@ -28,7 +28,10 @@ module.exports = ->
   res = lson.parseFile filepath
 
   if argv.p
-    console.log res
+    if argv.m
+      JSON.stringify res |> console.log
+    else
+      console.log res
 
   if argv.o?
     filename = path.basename filepath

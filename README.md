@@ -39,6 +39,13 @@ Output to directory
 { hoge: 'hoge' }
 ```
 
+Minimize output
+
+```sh
+✈ lson -pm test.lson
+{"hoge":"hoge"}
+```
+
 # Installation
 
 ```
